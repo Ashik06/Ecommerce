@@ -1,35 +1,26 @@
 package com.niit.model;
 
-import java.util.List;
-
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Category")
+@Table
 public class Category {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
-	private String categoryname;
-	
-	@OneToMany
-	private List<Product> products;
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getCategoryname() {
-		return categoryname;
-	}
-	public void setCategoryname(String categoryname) {
-		this.categoryname = categoryname;
-	}
 
+	int catId;
+	String catName;
+	public int getCatId() {
+		return catId;
+	}
+	public void setCatId(int catId) {
+		this.catId = catId;
+	}
+	public String getCatName() {
+		return catName;
+	}
+	public void setCatName(String catName) {
+		this.catName = catName;
+	}
 }

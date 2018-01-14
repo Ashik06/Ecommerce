@@ -46,4 +46,10 @@ public class HomeController {
 			}
 		return "login";
 	}
+	
+	@RequestMapping("/userLogged")
+	public String userLogged()
+	{
+		return "redirect:home";
+	}
 }

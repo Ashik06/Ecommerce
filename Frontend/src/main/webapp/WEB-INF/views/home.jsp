@@ -1,4 +1,4 @@
-<%@ include file="header.jsp"%>
+<%@ include file="navbar.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +20,7 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                <c:url value="/resources/css/images/Phone1.jpg" var="url1"></c:url>
+                <c:url value="/resources/css/images/as1.jpeg" var="url1"></c:url>
                     <img class="first-slide home-image" src="${url1 }" style="width:1320px;height:320px" alt="first slide">
                     <div class="container">
                     </div>
@@ -90,3 +90,5 @@
 </body>
 </html>
 <%@ include file="footer.jsp"%>
+
+

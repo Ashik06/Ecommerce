@@ -31,6 +31,3 @@ public void deleteProduct(int id) {
 }
 }
 
-
-
-

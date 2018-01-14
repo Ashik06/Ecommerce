@@ -1,10 +1,14 @@
-<jsp:include page="navbar.jsp"></jsp:include>
-
 <%@ page language="java" contentType="text/html" import="com.niit.model.Category"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 	<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-
-<title>Category</title>
+<!DOCTYPE> 
+<html>
+<head>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Category </title>
 <style>
 .btn {
 	border-radius: 100px !important;
@@ -16,33 +20,30 @@
     border-color: #ccc !important;
 }
 </style>
+</head>
+<jsp:include page="navbar.jsp"></jsp:include>
 
-
+<body>
 <div id="container" style=width:100%;float:left;margin-top:50px;margin-bottom:50px; align="center" >
-<c:url value="/admin/savecategory" var="action"></c:url>
 
-
+<form:form action="${pageContext.request.contextPath}/admin/UpdateCategory" modelAttribute="category" method="post">
 <table  class="table" style=width:30%;margin:auto;>
 
-	
 	<tr>
-		<h1 align="center">Category Module</h1>
+		<h1 align="center">Category Update Module</h1>
 	</tr>
-	
 	<tr>
 		<td>Category ID</td>
-		<td><input class="form-control"name="catId"/></td>
+		<td><form:input class="form-control"  path="catId"/></td>
 	</tr>
-	
 	<tr>
 		<td>Category Name</td>
-		<td><input class="form-control" type="text" name="catName"/></td>
+		<td><form:input class="form-control" path="catName"/></td>
 	</tr>
-
 	
-	<tr style="width:100%;">
+		<tr>
 		<td>
-			<button style="width:100px;margin-left:60px;" class="btn btn-success btn-outline" type="submit" class="submitbtn">Insert</button>
+			<button style="width:100px;margin-left:60px;"  class="btn btn-success btn-outline" type="submit" class="submitbtn">Update</button>
 		</td>
 		<td>
 			<button style="width:50%;" class="btn btn-default btn-outline" type="reset" class="erasebtn">Erase</button>
@@ -50,17 +51,17 @@
 	</tr>
 
 </table>
-
-</form>
+</form:form>
 </div>
-<table class="table" style=width:50%;margin:auto;>
+ <table class="table" style=width:50%;margin:auto;>
+
 
     
     <thead class="blue-grey lighten-5"><tr bgcolor="black">
 	<td style=color:white;>Category Id</td>
 	<td style=color:white;>Category Name</td>
 	
-	<td style=color:white;>Operation</td>
+	
 </tr> 
 </thead>
 <c:forEach items="${categoryList}" var="category">
@@ -68,22 +69,13 @@
 	<td>${category.catId}</td>
 	<td>${category.catName}</td>
 	
-	<td>
-	
-	
-	<a style=padding-left:10px; href="<c:url value="/admin/updateCategory/${category.catId}"/>"><i class="glyphicon glyphicon-edit" style="color:green";></i></a>
-	<a style=padding-left:25px; href="<c:url value="/admin/deleteCategory/${category.catId}"/>"><i class="glyphicon glyphicon-trash" style="color:red";></i></a>
-	</td>
 	</tr>
 
 </c:forEach>
 </table>
-
-			
+ <div  style=width:100%;height:2px;margin-top:150px;background:black;></div>
  
-  <div  style=width:100%;height:2px;margin-top:150px;background:black;></div>
-
+</body>
 <jsp:include page="footer.jsp"></jsp:include>
 
-
-
+</html>
