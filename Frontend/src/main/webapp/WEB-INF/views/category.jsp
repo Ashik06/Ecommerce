@@ -1,89 +1,68 @@
-<jsp:include page="navbar.jsp"></jsp:include>
-
-<%@ page language="java" contentType="text/html" import="com.niit.model.Category"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-	<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-
-<title>Category</title>
-<style>
-.btn {
-	border-radius: 100px !important;
-	border: 6px solid transparent !important;
-}
-.btn-default {
-    color: #090909 !important;
-    background-color: #bebebe !important;
-    border-color: #ccc !important;
-}
-</style>
-
-
-<div id="container" style=width:100%;float:left;margin-top:50px;margin-bottom:50px; align="center" >
-<c:url value="/admin/savecategory" var="action"></c:url>
-
-
-<table  class="table" style=width:30%;margin:auto;>
-
-	
-	<tr>
-		<h1 align="center">Category Module</h1>
-	</tr>
-	
-	<tr>
-		<td>Category ID</td>
-		<td><input class="form-control"name="catId"/></td>
-	</tr>
-	
-	<tr>
-		<td>Category Name</td>
-		<td><input class="form-control" type="text" name="catName"/></td>
-	</tr>
-
-	
-	<tr style="width:100%;">
-		<td>
-			<button style="width:100px;margin-left:60px;" class="btn btn-success btn-outline" type="submit" class="submitbtn">Insert</button>
-		</td>
-		<td>
-			<button style="width:50%;" class="btn btn-default btn-outline" type="reset" class="erasebtn">Erase</button>
-	</td>
-	</tr>
-
-</table>
-
-</form>
-</div>
-<table class="table" style=width:50%;margin:auto;>
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     
-    <thead class="blue-grey lighten-5"><tr bgcolor="black">
-	<td style=color:white;>Category Id</td>
-	<td style=color:white;>Category Name</td>
-	
-	<td style=color:white;>Operation</td>
-</tr> 
-</thead>
-<c:forEach items="${categoryList}" var="category">
-	<tr bgcolor="#EEEEEE">
-	<td>${category.catId}</td>
-	<td>${category.catName}</td>
-	
-	<td>
-	
-	
-	<a style=padding-left:10px; href="<c:url value="/admin/updateCategory/${category.catId}"/>"><i class="glyphicon glyphicon-edit" style="color:green";></i></a>
-	<a style=padding-left:25px; href="<c:url value="/admin/deleteCategory/${category.catId}"/>"><i class="glyphicon glyphicon-trash" style="color:red";></i></a>
-	</td>
-	</tr>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>category form</title>
+<script type="text/javascript">
+function formCategory() {
+	// Make quick references to our fields
+	var categoryName = document.getElementById('categoryName');
+	var description = document.getElementById('description');
+	if (notEmpty(categoryName, "categoryName Should not be empty")) {
+		if (isAlphabet(categoryName, "Please enter only letters for Category")) {
+			if (notEmpty(description, "Description Should not be empty")) {
+				if (isAlphanumeric(description, "Please enter only letters and characters for Category")) {
+				return true;
+			}  
+		}
+	}
+}
+	return false;
+}
+function notEmpty(elem, helperMsg) {
+	if (elem.value.length == 0) {
+		alert(helperMsg);
+		elem.focus(); // set the focus to this input
+		return false;
+	}
+	return true;
+}
+function isAlphabet(elem, helperMsg) {
+	var alphaExp = /^[a-z A-Z]+$/;
+	if (elem.value.match(alphaExp)) {
+		return true;
+	} 
+	else {
+		alert(helperMsg);
+		elem.focus();
+		return false;
+	}
+}
+function isAlphanumeric(elem, helperMsg) {
+	var alphaExp = /^[0-9a-zA-Z]+$/;
+	if (elem.value.match(alphaExp)) {
+		return true;
+	} else {
+		alert(helperMsg);
+		elem.focus();
+		return false;
+	}
+}
+</script>
+</head>       
+<body>
+<form name="categoryform" action="addCategory" onsubmit="return formCategory()" method="post">
+<table align="center">
+ <tr><td> Category Name:</td>
+  <td><input type="text" name="categoryName" Id="categoryName"></td></tr>
+  <tr><td>Category Description :</td>
+<td>  <input type="text" name="description" Id="description"></td></tr>
 
-</c:forEach>
 </table>
-
-			
- 
-  <div  style=width:100%;height:2px;margin-top:150px;background:black;></div>
-
-<jsp:include page="footer.jsp"></jsp:include>
-
-
-
+</form>
+</body>
+</html>   

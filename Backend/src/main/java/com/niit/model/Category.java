@@ -1,26 +1,43 @@
 package com.niit.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table
-public class Category {
-	@Id
+import org.springframework.stereotype.Component;
 
-	int catId;
-	String catName;
-	public int getCatId() {
-		return catId;
+@Entity
+@Table(name = "category")
+@Component
+public class Category {
+
+	@Id
+	@Column(name="id")
+	@GeneratedValue
+	private String id;
+	
+	private String categoryName;
+	private String description;
+	public String getId() {
+		return id;
 	}
-	public void setCatId(int catId) {
-		this.catId = catId;
+	public void setId(String id) {
+		this.id = id;
 	}
-	public String getCatName() {
-		return catName;
+	public String getCategoryName() {
+		return categoryName;
 	}
-	public void setCatName(String catName) {
-		this.catName = catName;
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
 	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	
 }

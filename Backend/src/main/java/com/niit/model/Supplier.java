@@ -1,39 +1,56 @@
 package com.niit.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 @Entity
-@Table
+@Table(name = "supplier")
+@Component
 public class Supplier {
-
 	@Id
+	@Column(name="supplierid")
+	@GeneratedValue
 
-	int supplierId;
-	String supplierName, supplierDes, supplierEmail;
-	public int getSupplierId() {
-		return supplierId;
+	private String supplierid;
+	private String name;
+	private String mobileno;
+	private String emailId;
+	private String address;
+	public String getSupplierid() {
+		return supplierid;
 	}
-	public void setSupplierId(int supplierId) {
-		this.supplierId = supplierId;
+	public void setSupplierid(String supplierid) {
+		this.supplierid = supplierid;
 	}
-	public String getSupplierName() {
-		return supplierName;
+	public String getName() {
+		return name;
 	}
-	public void setSupplierName(String supplierName) {
-		this.supplierName = supplierName;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getSupplierDes() {
-		return supplierDes;
+	public String getMobileno() {
+		return mobileno;
 	}
-	public void setSupplierDes(String supplierDes) {
-		this.supplierDes = supplierDes;
+	public void setMobileno(String mobileno) {
+		this.mobileno = mobileno;
 	}
-	public String getSupplierEmail() {
-		return supplierEmail;
+	public String getEmailId() {
+		return emailId;
 	}
-	public void setSupplierEmail(String supplierEmail) {
-		this.supplierEmail = supplierEmail;
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
 	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
+	
 }

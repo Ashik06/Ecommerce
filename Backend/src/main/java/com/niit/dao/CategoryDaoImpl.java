@@ -2,6 +2,7 @@ package com.niit.dao;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -29,11 +30,10 @@ public class CategoryDaoImpl implements CategoryDao {
 	}
 
 	@Transactional
-	public List<Category> retrieveCategory() {
-		Session session = sessionFactory.openSession();
-		Query query = session.createQuery("from Category");
-		List<Category> listCategory = query.list();
-		session.close();
+	public List<Category> list() {
+		@SuppressWarnings("unchecked")
+		List<Category> listCategory = (List<Category>) sessionFactory.getCurrentSession().createCriteria(Category.class)
+				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 		return listCategory;
 	}
 
@@ -49,11 +49,16 @@ public class CategoryDaoImpl implements CategoryDao {
 	}
 
 	@Transactional
-	public Category getCategory(int catId) {
-		Session session = sessionFactory.openSession();
-		Category category = (Category) session.get(Category.class, catId);
-		session.close();
-		return category;
+	public Category get(String id) {
+		String hql = "from Category where id ='" + id + "'";
+		Query query = (Query) sessionFactory.getCurrentSession().createQuery(hql);
+		@SuppressWarnings("unchecked")
+		List<Category> listCategory = (List<Category>) (query).list();
+
+		if (listCategory != null && !listCategory.isEmpty()) {
+			return listCategory.get(0);
+		}
+		return null;
 	}
 
 	@Transactional
@@ -67,6 +72,3 @@ public class CategoryDaoImpl implements CategoryDao {
 		}
 	}
 }
-
-
-

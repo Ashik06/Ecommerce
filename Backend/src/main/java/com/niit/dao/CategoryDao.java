@@ -9,10 +9,11 @@ import com.niit.model.Category;
 public interface CategoryDao {
 
 	public boolean addCategory(Category category);
-	public List<Category> retrieveCategory();
+	public List<Category> list();
 	public boolean deleteCategory(Category category);
-	public Category getCategory(int catId);
+	public Category get(String id);
 	public boolean updateCategory(Category category);
+	
 
 }
 

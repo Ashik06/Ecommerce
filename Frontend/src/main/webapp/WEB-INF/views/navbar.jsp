@@ -59,7 +59,7 @@ li.dropdown {
 
 .dropdown:hover .dropdown-content {
 	display: block;
-} 
+}
 </style>
 </head>
 <body>
@@ -84,13 +84,13 @@ li.dropdown {
 						<button class="dropbtnn">
 							<i class="fa fa-bars" aria-hidden="true"></i> Admin Control
 							<div class="dropdown-content">
-								<a href="${pageContext.request.contextPath}/admin/category"><i
-									class="fa fa-list" aria-hidden="true"></i> Category</a> <a
-									href="${pageContext.request.contextPath}/admin/supplier"><i
+								<a href="category">
+									<i class="fa fa-list" aria-hidden="true"></i> Category
+								</a> <a href="supplier"><i
 									class="fa fa-users" aria-hidden="true"></i> Supplier </a> <a
-									href="${pageContext.request.contextPath}/admin/InsertProduct"><i
+									href="Product"><i
 									class="fa fa-product-hunt" aria-hidden="true"></i> Product </a> <a
-									href="${pageContext.request.contextPath}/admin/productDetails"><i
+									href="${pageContext.request.contextPath}/admin/productlist"><i
 									class="fa fa-list" aria-hidden="true"></i> Product List</a>
 							</div>
 						</button>

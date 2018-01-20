@@ -11,6 +11,11 @@
        http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context.xsd">
 
+  <!--   <bean id="multipartResolver" 
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="4200000" />
+	</bean>-->
+
 	<context:component-scan base-package="com.niit.*" />
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -23,8 +28,8 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 		</property>
 	</bean>
 	
-<!-- 	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
- -->	<mvc:annotation-driven />
+	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
+	<mvc:annotation-driven />
 	<mvc:default-servlet-handler />
 
 </beans>		

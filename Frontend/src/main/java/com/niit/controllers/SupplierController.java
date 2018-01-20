@@ -6,87 +6,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.niit.dao.SupplierDao;
 import com.niit.model.Supplier;
 
 @Controller
 public class SupplierController {
-
 	@Autowired
 	SupplierDao supplierDao;
 
-	@RequestMapping(value = "/admin/AddSupplier", method = RequestMethod.POST)
-	public String addSupplier(@RequestParam("supplierId") int supplierId,
-			@RequestParam("supplierName") String supplierName, @RequestParam("supplierDes") String supplierDes,
-			@RequestParam("supplierEmail") String supplierEmail, Model m) {
-		Supplier supplier = new Supplier();
-		supplier.setSupplierId(supplierId);
-		supplier.setSupplierName(supplierName);
-		supplier.setSupplierDes(supplierDes);
-		supplier.setSupplierEmail(supplierEmail);
-		m.addAttribute(supplier);
+	@RequestMapping("supplier")
+	public String NewCategory(Model model) {
 
-		supplierDao.addSupplier(supplier);
-		List<Supplier> listSupplier = supplierDao.retrieveSupplier();
-		m.addAttribute("supplierList", listSupplier);
-
+		model.addAttribute("AddsupplierButtonClicked", true);
 		return "supplier";
-	}
-	
-	
-	/*@RequestMapping(value="/admin/AddSupplier", method=RequestMethod.POST)
-	public ModelAndView addSupplier(@ModelAttribute("supplier")Supplier supplier)
-	{
-		ModelAndView mv=new ModelAndView();
-		supplier.setSupplierName(supplier);
-		supplier.setEnabled("1");
-		supplierDao.addSupplier(supplier);
-		mv.setViewName("supplier");
-		return mv;	
-}	*/
 
-	@RequestMapping(value = "admin/supplier", method = RequestMethod.GET)
-	public String showSupplier(Model m) {
-
-		List<Supplier> listSupplier = supplierDao.retrieveSupplier();
-		m.addAttribute("supplierList", listSupplier);
-		return "supplier";
 	}
 
-	@RequestMapping(value = "/admin/updateSupplier/{supplierId}", method = RequestMethod.GET)
-	public String updateSupplier(@PathVariable("supplierId") int supplierId, Model m) {
-		Supplier supplier = supplierDao.getSupplier(supplierId);
-		m.addAttribute(supplier);
-		List<Supplier> listSupplier = supplierDao.retrieveSupplier();
-		m.addAttribute("supplierList", listSupplier);
-		return "updateSupplier";
+	@RequestMapping("addSupplier")
+	public String addSupplier(@ModelAttribute Supplier supplier, Model model) {
+		supplierDao.saveOrUpdate(supplier);
+
+		return "redirect:viewSupplier";
+
 	}
 
-	@RequestMapping(value = "/admin/updateSupplier", method = RequestMethod.POST)
-	public String updateMySupplier(@ModelAttribute("supplier") Supplier supplier, Model m) {
+	@RequestMapping("viewSupplier")
+	public String viewSupplier(Model model) {
 
-		supplierDao.updateSupplier(supplier);
-		Supplier supplier1 = new Supplier();
-		m.addAttribute(supplier1);
-
-		List<Supplier> listSupplier = supplierDao.retrieveSupplier();
-		m.addAttribute("supplierList", listSupplier);
-
-		return "supplier";
-	}
-
-	@RequestMapping(value = "/admin/deleteSupplier/{supplierId}", method = RequestMethod.GET)
-	public String deleteSupplier(@PathVariable("supplierId") int supplierId, Model m) {
-		Supplier supplier = supplierDao.getSupplier(supplierId);
-		supplierDao.deleteSupplier(supplier);
-		List<Supplier> listSupplier = supplierDao.retrieveSupplier();
-		m.addAttribute("supplierList", listSupplier);
-		return "supplier";
+		List<Supplier> supplierList = supplierDao.list();
+		model.addAttribute("supplierList", supplierList);
+		model.addAttribute("viewSupplierClicked", true);
+		return "viewsupplier";
 	}
 
 }

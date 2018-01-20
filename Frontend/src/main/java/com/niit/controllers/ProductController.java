@@ -1,52 +1,47 @@
-package com.niit.controllers;
 
+package com.niit.controllers;
 import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.niit.dao.ProductDao;
 import com.niit.model.Product;
-import com.niit.services.ProductService;
 
 @Controller
 public class ProductController {
 	@Autowired
-	private ProductService productService;
+	ProductDao productDao;
 
-	@RequestMapping(value = "admin/InsertProduct")
-	public String showProduct(Model m) {
-		Product product = new Product();
-		m.addAttribute(product);
-		//m.addAttribute("categoryList", this.getCategories());
-		//m.addAttribute("supplierList", this.getSupplieries());
+	@RequestMapping("Product")
+	public String NewCategory(Model model) {
+
+		model.addAttribute("AddproductButtonClicked", true);
 		return "Product";
-	}
-
-	@RequestMapping(value = "/all/getallproducts")
-	public ModelAndView getAllProducts() {
-		List<Product> products = productService.getAllProducts();
-		return new ModelAndView("productlist", "productsAttr", products);
 
 	}
 
-	// all/viewproduct/1{id=1}
-	@RequestMapping(value = "all/viewproduct/{id}")
-	public ModelAndView getProduct(@PathVariable int id) {
-		Product product = productService.getProduct(id);
-		return new ModelAndView("viewproduct", "product", product);
-
+	@RequestMapping("addProduct")
+	public String addProduct(@ModelAttribute Product product,@RequestParam("file")MultipartFile file){
+		productDao.saveOrUpdate(product);
+		String path = "E://Project/Frontend/src/main/webapp/WEB-INF/resources/images/product/";
+		FileUtil.upload(path, file, product.getProductid()+".jpg");
+		return "redirect:viewProduct";
 	}
 
-	@RequestMapping(value = "/admin/deleteproduct/id")
-	public String deleteProduct(@PathVariable int id) {
-		productService.deleteProduct(id);
-		return "redirect:/all/getallproducts";
-	}
+	@RequestMapping("viewProduct")
+	public String viewProducts(Model model) {
 
+		List<Product> productList = productDao.list();
+		model.addAttribute("productList", productList);
+		model.addAttribute("viewProductClicked", true);
+		return "viewproduct";
+
+	}
 }
-

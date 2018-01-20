@@ -1,54 +1,99 @@
 package com.niit.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
+@Table(name = "Product")
+@Component
 public class Product {
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO) //Automatically generate value for Id using sequence
-private int id;
-private String productname;
-private String productDescription;
-private int quantity;
-private double price;
-@ManyToOne
-private Category category;
+	@Column(name = "Productid")
+	@GeneratedValue
 
-public int getId() {
-	return id;
-}
-public void setId(int id) {
-	this.id = id;
-}
-public String getProductname() {
-	return productname;
-}
-public void setProductname(String productname) {
-	this.productname = productname;
-}
-public int getQuantity() {
-	return quantity;
-}
-public void setQuantity(int quantity) {
-	this.quantity = quantity;
-}
-public double getPrice() {
-	return price;
-}
-public void setPrice(double price) {
-	this.price = price;
-}
-public String getProductDescription() {
-	return productDescription;
-}
-public void setProductDescription(String productDescription) {
-  this.productDescription= productDescription;	
-}
-}
+	private String productid;
+	private String productName;
+	private String productdescription;
 
+	private String category;
 
+	private String supplier;
 
+	private int price;
+
+	private int Stock;
+	@Transient
+	private MultipartFile image;
+
+	public MultipartFile getImage() {
+		return image;
+	}
+
+	public void setImage(MultipartFile image) {
+		this.image = image;
+	}
+
+	public String getProductid() {
+		return productid;
+	}
+
+	public void setProductid(String productid) {
+		this.productid = productid;
+	}
+
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+	public String getProductdescription() {
+		return productdescription;
+	}
+
+	public void setProductdescription(String productdescription) {
+		this.productdescription = productdescription;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public String getSupplier() {
+		return supplier;
+	}
+
+	public void setSupplier(String supplier) {
+		this.supplier = supplier;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public int getStock() {
+		return Stock;
+	}
+
+	public void setStock(int stock) {
+		Stock = stock;
+	}
+}

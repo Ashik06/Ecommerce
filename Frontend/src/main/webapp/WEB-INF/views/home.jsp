@@ -1,94 +1,118 @@
-<%@ include file="navbar.jsp"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@include file="navbar.jsp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Home Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+<style>
+<link ref="text/stylesheet">
+.slider {
+    
+	width:850px;
+	margin: 1em auto;
+	margin-top:1px;
+}
+.slider-wrapper {
+	width: 95%;
+	height: 250px;
+	position:relative;
+	padding-left: 20spx;  
+    padding-right:50px;
+}   
+.slide {
+	float: right;
+	position: absolute;
+	width: 95%; 
+	height: 100%;
+	opacity: 0;
+	transition: opacity 3s linear;
+}
+.slider-wrapper > .slide:first-child {
+	opacity: 1;
+}
+</style>
+<script>
+(function() {
+	
+	function Slideshow( element ) {
+		this.el = document.querySelector( element );
+		this.init();
+	}
+	
+	Slideshow.prototype = {
+		init: function() {
+			this.wrapper = this.el.querySelector( ".slider-wrapper" );
+			this.slides = this.el.querySelectorAll( ".slide" );
+			this.previous = this.el.querySelector( ".slider-previous" );
+			this.next = this.el.querySelector( ".slider-next" );
+			this.index = 0;
+			this.total = this.slides.length;
+			this.timer = null;
+			
+			this.action();
+			this.stopStart();	
+		},
+		_slideTo: function( slide ) {
+			var currentSlide = this.slides[slide];
+			currentSlide.style.opacity = 1;
+			
+			for( var i = 0; i < this.slides.length; i++ ) {
+				var slide = this.slides[i];
+				if( slide !== currentSlide ) {
+					slide.style.opacity = 0;
+				}
+			}
+		},
+		action: function() {
+			var self = this;
+			self.timer = setInterval(function() {
+				self.index++;
+				if( self.index == self.slides.length ) {
+					self.index = 0;
+				}
+				self._slideTo( self.index );
+				
+			},3000);
+		},
+		stopStart: function() {
+			var self = this;
+			self.el.addEventListener( "mouseover", function() {
+				clearInterval( self.timer );
+				self.timer = null;
+				
+			}, false);
+			self.el.addEventListener( "mouseout", function() {
+				self.action();
+				
+			}, false);
+		}
+		
+		
+	};
+	
+	document.addEventListener( "DOMContentLoaded", function() {
+		
+		var slider = new Slideshow( "#main-slider" );
+		
+	});
+	
+	
+})();
+</script>
+
 </head>
 <body>
-<div class="container-fluid">
-
-<div id="myCarousel" class="carousel slide" data-ride="carousel" >
-            <!-- Indicators -->
-            <ol class="carousel-indicators" >
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-                <li data-target="#myCarousel" data-slide-to="3"></li>
-                <li data-target="#myCarousel" data-slide-to="4"></li>
-                <li data-target="#myCarousel" data-slide-to="5"></li>
-            </ol>
-            <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                <c:url value="/resources/css/images/as1.jpeg" var="url1"></c:url>
-                    <img class="first-slide home-image" src="${url1 }" style="width:1320px;height:320px" alt="first slide">
-                    <div class="container">
-                    </div>
-                </div>
-                <div class="item">
-                	<c:url value="/resources/images/fourth.jpg" var="url2"></c:url>
-                    <img class="second-slide home-image " src="${url2 }" style="width:1320px;height:320px" alt="second slide">
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1 style="color:lightgrey">Beauty and Grooming...</h1>
-                            <p style="color:orange">Online shopping offers you a lot of varieties than you imagine</p>
-                        </div>
-                    </div>
-                </div>
-                 <div class="item">
-                 <c:url value="/resources/images/fifth.jpg" var="url3"></c:url>
-                    <img class="third-slide home-image " src="${url3 }" style="width:1320px;height:320px" alt="third slide">
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1 style="color:orange">Available with huge discounts</h1>
-                            <p style="color:black">Grab more cosmetics with small amount!!</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                	<c:url value="/resources/images/seventh.jpg" var="url4"></c:url>
-                    <img class="fourth-slide home-image" src="${url4 }"   style="width:1320px;height:320px" alt="fourth slide" >
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1 style="color:orange">Impressive cosmetics under different categories</h1>
-                            <p style="color:red">You have numerous products under MakeUp, Spa etc..</p>
-                        </div>
-                    </div>
-                </div>
-                 <div class="item">
-                 <c:url value="/resources/images/sixth.jpg" var="url5"></c:url>
-                    <img class="fifth-slide home-image " src="${url5 }" style="width:1320px;height:320px" alt="fifth slide">
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1 style="color:orange">Unique Products around worldwide</h1>
-                            <p style="color:red">You have numerous products under MakeUp, Spa etc..</p>
-                        </div>
-                    </div>
-                </div>
-                 <div class="item">
-                 <c:url value="/resources/images/first.jpg" var="url6"></c:url>
-                    <img class="sixth-slide home-image" src="${url6 }"   style="width:1320px;height:320px" alt="sixth slide" >
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1 style="color:white">Bye Kajal of all brands</h1>
-                            <p style="color:red">Here, you can see the products under different brands</p>
-                        </div>
-                    </div>
-            </div>
-            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev" style="color:black">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next" style="color:black">
-                <span class="glyphicon glyphicon-chevron-right" ></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-
+<div class="slider" id="main-slider"><!-- outermost container element -->
+	<div class="slider-wrapper"><!-- innermost wrapper element -->
+		<img src="resources/images/image.jpg" alt="First" class="slide" />
+		<img src="resources/images/phone2.jpg" alt="second" class="slide" />
+		<img src="resources/images/phone3.jpg" alt="Third" class="slide" />
+		<img src="resources/images/phone4.jpg" alt="fourth" class="slide" />
+		
 </div>
-</div><br>
+</div>	
+
 </body>
 </html>
-<%@ include file="footer.jsp"%>
-
-
