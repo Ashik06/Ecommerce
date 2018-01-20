@@ -6,8 +6,28 @@
 
 <title>Login page</title>
 <style type="text/css">
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: Roundest border;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+button {
+    background-color: DodgerBlue;
+    color: white;
+    padding:20px 20px;
+    margin: 30px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+button:hover {
+    opacity: 0.8;
+}
 body {
-    background-color: lightblue;
+    background-color: purple;
 }
 </style>
 

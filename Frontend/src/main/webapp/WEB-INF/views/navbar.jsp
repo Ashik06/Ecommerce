@@ -13,7 +13,7 @@ ul {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: #333;
+	background-color:purple ;
 }
 
 li {
@@ -26,6 +26,7 @@ li a, .dropbtn {
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
+	background-color: purple;
 }
 
 li a:hover, .dropdown:hover .dropbtn {
@@ -33,7 +34,8 @@ li a:hover, .dropdown:hover .dropbtn {
 }
 
 li.dropdown {
-	display: inline-block;
+	display: purple;
+	
 }
 
 .dropdown-content {
@@ -46,11 +48,13 @@ li.dropdown {
 }
 
 .dropdown-content a {
-	color: black;
+	color: white;
 	padding: 12px 16px;
 	text-decoration: none;
 	display: block;
 	text-align: left;
+	background-color: purple;
+
 }
 
 .dropdown-content a:hover {
@@ -59,7 +63,9 @@ li.dropdown {
 
 .dropdown:hover .dropdown-content {
 	display: block;
+	
 }
+
 </style>
 </head>
 <body>
@@ -81,11 +87,15 @@ li.dropdown {
 			<security:authorize access="hasRole('ROLE_ADMIN')">
 				<ul class="nav navbar-nav navbar-left">
 					<div class="dropdown">
-						<button class="dropbtnn">
-							<i class="fa fa-bars" aria-hidden="true"></i> Admin Control
+						<button class="dropbtn">
+								
+
+		
+				<i class="fa fa-bars" aria-hidden="true"></i> 	Admin control
+							
 							<div class="dropdown-content">
 								<a href="category">
-									<i class="fa fa-list" aria-hidden="true"></i> Category
+									<i class="fa fa-list"  aria-hidden="true"></i> Category
 								</a> <a href="supplier"><i
 									class="fa fa-users" aria-hidden="true"></i> Supplier </a> <a
 									href="Product"><i
@@ -120,7 +130,8 @@ li.dropdown {
 							<a href="${pageContext.request.contextPath}/user/goToCart"><i
 								class="fa fa-cart-plus" aria-hidden="true"> My Cart </i> </a> <a
 								href="${pageContext.request.contextPath}/user/goToOrders"><i
-								class="fa fa-cart-plus" aria-hidden="true"> My Orders </i> </a> <a
+								class="fa fa-cart-plus" aria-hidden="true"> My Orders </i> </a>
+								 <a
 								href="${pageContext.request.contextPath}/logout"><i
 								class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
 						</div>

@@ -4,21 +4,33 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="spr"%>
 
 <style>
-button {
-	background-color: #0000;
-	padding: 14px 20px;
-	cursor: pointer;
-	border-radius: 15px;
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
-.submitbtn {
-	padding: 14px 20px;
-	background-color: green;
-	color: white;
-	width: 30%;
-	margin-right: 1%;
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
-.submitbtn, .erasebtn {
-	float: center;
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
 }
 </style>
 
