@@ -43,7 +43,7 @@ public class ProductController {
 		List<Product> productList = productDao.list();
 		model.addAttribute("productList", productList);
 		model.addAttribute("viewProductClicked", true);
-		return "viewproduct";
+		return  "Adminsignin";
 
 	}
 }

@@ -93,7 +93,7 @@ body {
        
 <body>
 
-<form name="categoryform" action="addCategory" onsubmit="return formCategory()" method="post">
+<form name="categoryform" action="addcategory" onsubmit="return formCategory()" method="post">
 <table align="center">
  <tr><td> Category Name:</td>
   <td><input type="text" name="categoryName" Id="categoryName"></td></tr>

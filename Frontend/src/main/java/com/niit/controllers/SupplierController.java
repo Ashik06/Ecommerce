@@ -38,7 +38,7 @@ public class SupplierController {
 		List<Supplier> supplierList = supplierDao.list();
 		model.addAttribute("supplierList", supplierList);
 		model.addAttribute("viewSupplierClicked", true);
-		return "viewsupplier";
+		return  "Adminsignin";
 	}
 
 }
