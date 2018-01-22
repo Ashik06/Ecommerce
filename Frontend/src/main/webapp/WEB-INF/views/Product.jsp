@@ -115,7 +115,7 @@ input[type=submit] {
     cursor: pointer;
 }
 input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: purple;
 }
 
 div {
@@ -123,15 +123,19 @@ div {
     background-color: #f2f2f2;
     padding: 20px;
 }
+body {
+    background-color: pink;
+}
+
 </style>
 
 <body>
 <fieldset>
 <legend>Product</legend>
-   <form name="ProductForm"  action="addProduct" onsubmit="return formProduct()" method="post">
+   <form name="ProductForm"  action="addProduct" onsubmit="return formProduct()" method="post" enctype="multipart/form-data">
    <table align="center" >
    
-  <tr><td>product Name:</td>
+  <tr><td>Product Name:</td>
   <td><input class="form-control" type="text" name="productName" Id="productName"></td></tr>
  <tr><td> Product Description:</td>
  <td><input class="form-control" type="text" name="productdescription" Id="productdescription"></td></tr>

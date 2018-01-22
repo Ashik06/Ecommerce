@@ -1,6 +1,7 @@
 package com.niit.model;
 
 import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -31,8 +32,8 @@ public class Product {
 
 	private int Stock;
 	@Transient
-	private MultipartFile image;
-
+private MultipartFile image;
+	
 	public MultipartFile getImage() {
 		return image;
 	}
@@ -41,6 +42,7 @@ public class Product {
 		this.image = image;
 	}
 
+	
 	public String getProductid() {
 		return productid;
 	}

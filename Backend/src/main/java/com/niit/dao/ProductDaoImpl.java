@@ -2,6 +2,7 @@ package com.niit.dao;
 
 import java.util.List;
 
+
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.model.Product;
+
 
 @Repository("productDao")
 public class ProductDaoImpl implements ProductDao {

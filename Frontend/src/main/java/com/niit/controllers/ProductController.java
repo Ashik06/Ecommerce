@@ -3,6 +3,8 @@ package com.niit.controllers;
 import java.util.List;
 
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,7 +30,7 @@ public class ProductController {
 	}
 
 	@RequestMapping("addProduct")
-	public String addProduct(@ModelAttribute Product product,@RequestParam("file")MultipartFile file){
+	public String addProduct(@ModelAttribute Product product,@RequestParam("file") MultipartFile file){
 		productDao.saveOrUpdate(product);
 		String path = "E://Project/Frontend/src/main/webapp/WEB-INF/resources/images/product/";
 		FileUtil.upload(path, file, product.getProductid()+".jpg");
