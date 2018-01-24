@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <style>
-/* div.gallery {
+ div.gallery {
     margin: 5px;
     border: 1px solid #ccc;
     float:right;
@@ -24,7 +24,7 @@ div.desc {
     padding: 15px;
     text-align: center;
 }
- */
+ 
 .img {
     position: relative;
     float: left;
@@ -42,7 +42,7 @@ div.desc {
 <c:forEach items="${productList}" var="product" >
 <div class="img" >
 <a href="productdescription?productid=${product.productid}">
-<img src="resources/images/products/${product.productid}.jpg" width="200" height="200">
+<img src="resources/images/product/${product.productid}.jpg" width="200" height="200">
 </a>
 Name : ${product.productName}
 price : ${product.price}

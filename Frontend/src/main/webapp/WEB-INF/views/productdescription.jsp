@@ -64,8 +64,8 @@ function goBack() {
 
 </head>
 <body>
- <img src="resources/images/products/${product.productid}.jpg" width="500" height="500">
-</th>
+ <img src="resources/images/product/${product.productid}.jpg" width="500" height="500">
+
 <th>
 ${product.productName}<br>
 ${product.productdescription}<br>
@@ -80,22 +80,8 @@ ${product.price}<br>${product.stock}</th>
 </tr>
 </table>
  
- <h2 style="text-align:center">Product List</h2>
-<p style="text-align:center"></p>
-
-<div class="columns">
-  <ul class="price">
-    <li class="header"><img src="resources/images/products/${product.productid}.jpg" width="150" height="150"></li>
-    <li>${product.productName}</li>
-    <li>${product.productdescription} </li>
-    <li> RS ${product.price}</li>
-    <li>${product.stock}</li>
-    <li class="grey" style="color: red;"><h2>${msg }</h2></li>
-   <li ><a href="addToCart?productId=${product.productid}" class="button">addtocart</a></li>
-   <li><a href="" class="button" button onclick="goBack()">GoBack</a></li>
-  </ul>
-</div>
  
+
  
  
  

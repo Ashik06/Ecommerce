@@ -25,10 +25,10 @@ public class ProductController {
 	ProductDao productDao;
 
 	@Autowired
-	private CategoryDao categoryDAO;
+	private CategoryDao categoryDao;
 
 	@Autowired
-	private SupplierDao supplierDAO;
+	private SupplierDao supplierDao;
 
 	@RequestMapping("Product")
 	public String NewCategory(Model model) {
@@ -42,8 +42,8 @@ public class ProductController {
 	public ModelAndView newProduct() {
 
 		ModelAndView mv = new ModelAndView("Adminsignin");
-		List<Category> categoryList = categoryDAO.list();
-		List<Supplier> supplierList = supplierDAO.list();
+		List<Category> categoryList = categoryDao.list();
+		List<Supplier> supplierList = supplierDao.list();
 		mv.addObject("supplierList", supplierList);
 		mv.addObject("categoryList", categoryList);
 		mv.addObject("AddProductButtonClicked", true);
@@ -89,5 +89,16 @@ public class ProductController {
 		return "redirect:viewProduct";
 
 	}
+	
+	@RequestMapping("productdescription")
+	public String productdescription(@RequestParam("productid") String productid, Model model) {
 
+		Product product = productDao.get(productid);
+		model.addAttribute("product", product);
+		model.addAttribute("productdescription", true);
+
+		return "Usersignin";
+
+	}
+	
 }
