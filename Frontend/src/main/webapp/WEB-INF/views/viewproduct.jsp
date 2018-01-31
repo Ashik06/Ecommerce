@@ -17,6 +17,7 @@
 <th>Category</th>
 <th>supplier</th>
 <th>price</th>
+
 <th>stock</th>
 <th>EDIT</th>
 <th> DELETE</th>
@@ -31,8 +32,10 @@
 <td>${product.supplier}</td>
 <td>${product.price}</td>
 <td>${product.stock}</td>
+
 <td><a href="editProduct?productId=${product.productid}">EDIT</a></td>
 <td><a href="deleteProduct?productId=${product.productid}">DELETE</a></td>
+
 </tr>
 </c:forEach>
 </table>
