@@ -4,6 +4,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 
@@ -19,10 +27,10 @@
 </head>
 
 <body> <center>List Of Shipping</center>
-  <table cellspacing="10">
+ <table cellspacing="10">
 <tr>
 <th>S.No</th>
-<th>Shipping id</th>
+<th>Shippingid</th>
 <th>name</th>
 <th>mobileno</th>
 <th>address</th>
@@ -36,13 +44,13 @@
 <td>${shipping.name}</td>
 <td>${shipping.mobileno}</td>
 <td>${shipping.address}</td>
-<td><a href="editShipping?shippingId=${shipping.shippingid}">EDIT</a></td>
-<td><a href="deleteShipping?shippingId=${shipping.shippingid}">DELETE</a></td>
+<td><button type="button" class="btn btn-info"><a href="editShipping?shippingId=${shipping.shippingid}">EDIT</a></button></td>
+<td><button type="button" class="btn btn-danger"><a href="deleteShipping?shippingId=${shipping.shippingid}">DELETE</a></button></td>
 </tr>
 </c:forEach>
 </table>
  
- <a href="newshipping"><button>CREATE NEW ADDRESS </button></a>
+ <button type="button" class="btn btn-info"><a href="newshipping">CREATE NEW ADDRESS </a></button>
  
  <c:forEach items="${shippingList}" var="shipping" varStatus="status">
 <div class="box">
@@ -50,9 +58,9 @@
 ${shipping.name}<br>
 ${shipping.mobileno}<br>
 ${shipping.address}<br></h4>
-<a href="editShipping?shippingId=${shipping.shippingid}">EDIT</a>
-<a href="deleteShipping?shippingId=${shipping.shippingid}">DELETE</a>
-<a href="deliveryaddress?shippingId=${shipping.shippingid}"><button>delivery here</button></a>
+<button type="button" class="btn btn-info"><a href="editShipping?shippingId=${shipping.shippingid}">EDIT</a></button>
+<button type="button" class="btn btn-danger"><a href="deleteShipping?shippingId=${shipping.shippingid}">DELETE</a></button>
+  <a href="deliveryaddress?shippingId=${shipping.shippingid}"><button>deliveryhere</button></a>
 </div>
 </c:forEach>
 </body>

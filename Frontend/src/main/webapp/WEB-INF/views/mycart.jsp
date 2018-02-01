@@ -13,6 +13,7 @@
     padding: 25px;
     margin: 25px;
 } 
+
 </style>
 </head>
 <body>
@@ -45,6 +46,7 @@
 </tr>
 <tr>
 <td><a href="proceed"><button>proceddelivery</button></a>
+  
 </td>
 </tr>
 </table>

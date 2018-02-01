@@ -120,6 +120,8 @@ body {
 
 <body>
 	<fieldset>
+	
+  <legend>Supplier</legend>
 		<form name="supplierform" action="addSupplier"
 			onsubmit="return formSupplier()" method="post">
 			<table align="center" cellspacing="10">

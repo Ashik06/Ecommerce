@@ -74,7 +74,8 @@ ${product.supplier}<br>
 ${product.price}<br>${product.stock}</th>
 </h3>
 <tr><td style="color: red;"><h2>${msg}</h2></td>
-<td><button class="button"><a href="addToCart?productId=${product.productid}">ADDTOCART</a></button></td>
+<td><button class="button"><a href="addToCart?productId=${product.productid}">ADDTOCART</a></button>
+</td>
 <br> 
 <td><button onclick="goBack()">GoBack</button></td>
 </tr>

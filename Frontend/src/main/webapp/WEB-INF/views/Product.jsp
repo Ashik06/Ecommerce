@@ -131,8 +131,8 @@ body {
 </style>
 
 <body>
-<fieldset>
-<legend>Product</legend>
+  <fieldset>
+  <legend>Product</legend>
    <form name="ProductForm"  action="addProduct" onsubmit="return formProduct()" method="post" enctype="multipart/form-data">
    <table align="center" >
    
