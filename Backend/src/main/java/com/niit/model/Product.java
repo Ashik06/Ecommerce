@@ -32,8 +32,8 @@ public class Product {
 
 	private int Stock;
 	@Transient
-private MultipartFile image;
-	
+	private MultipartFile image;
+
 	public MultipartFile getImage() {
 		return image;
 	}
@@ -42,7 +42,6 @@ private MultipartFile image;
 		this.image = image;
 	}
 
-	
 	public String getProductid() {
 		return productid;
 	}
