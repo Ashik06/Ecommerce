@@ -60,5 +60,4 @@ body {
 			<br>
 			</div>
 	</form> 
-
 <%@ include file="footer.jsp" %>

@@ -67,14 +67,16 @@ function goBack() {
  <img src="resources/images/product/${product.productid}.jpg" width="500" height="500">
 
 <th>
-${product.productName}<br>
-${product.productdescription}<br>
-${product.category}<br>
-${product.supplier}<br>
-${product.price}<br>${product.stock}</th>
+<br>Product Name:${product.productName}
+<br> Description:${product.productdescription}
+<br>Price:${product.price}
+<br>Stock:${product.stock}</th>
+
 </h3>
 <tr><td style="color: red;"><h2>${msg}</h2></td>
-<td><button class="button"><a href="addToCart?productId=${product.productid}">ADDTOCART</a></button></td>
+<td><button class="button"><a href="addToCart?productId=${product.productid}">ADDTOCART</a></button>
+ 
+</td>
 <br> 
 <td><button onclick="goBack()">GoBack</button></td>
 </tr>

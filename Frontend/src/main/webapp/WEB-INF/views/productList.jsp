@@ -46,6 +46,7 @@ div.desc {
 </a>
 Name : ${product.productName}
 price : ${product.price}
+
 </div>
 </c:forEach>
 </body>

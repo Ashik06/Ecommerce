@@ -71,8 +71,8 @@ li.dropdown {
 <body>
 
 	<ul>
-		<li><a href="#home">Home</a></li>
-		<li><a href="#news">Products</a></li>
+		<li><a href="${pageContext.request.contextPath}/home">Home</a></li>
+		<li><a href="${pageContext.request.contextPath}/product">Products</a></li>
 
 		<c:if test="${pageContext.request.userPrincipal.name==null}">
 			<ul class="nav navbar-nav navbar-right">
@@ -127,13 +127,17 @@ li.dropdown {
 					<div class="dropdown">
 						<button class="dropbtn">Welcome:${pageContext.request.userPrincipal.name}</button>
 						<div class="dropdown-content">
-							<a href="${pageContext.request.contextPath}/user/goToCart"><i
-								class="fa fa-cart-plus" aria-hidden="true"> My Cart </i> </a> <a
-								href="${pageContext.request.contextPath}/user/goToOrders"><i
-								class="fa fa-cart-plus" aria-hidden="true"> My Orders </i> </a>
+							
+                                 <c:if
+											test="${pageContext.request.userPrincipal.name != null }">
+											<a href="mycart"> My cart</a>
+											
+										</c:if>
+								
 								 <a
 								href="${pageContext.request.contextPath}/logout"><i
 								class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+								
 						</div>
 					</div>
 				</ul>

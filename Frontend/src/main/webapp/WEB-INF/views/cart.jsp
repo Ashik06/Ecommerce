@@ -20,6 +20,7 @@
   <input type="text" name="total"><br>
    quantity:<br>
   <input type="text" name="quantity"><br>
+  
    status:<br>
   <input type="text" name="status"><br>
   <input type="submit" name="submit" value="new cart">

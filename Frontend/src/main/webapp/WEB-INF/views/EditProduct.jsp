@@ -13,6 +13,7 @@
   <form action="AfterEdit" method="post">
   product id:<input class="form-control" type="text" name="productid" value="${product.productid}" readonly="true"><br>
   
+  
   product Name:
   <input class="form-control" type="text" name="productName" value="${product.productName}"><br>
   Product Description:

@@ -6,13 +6,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <style type="text/css">
-/* div {
+ div {
     background-color: lightgrey;
     width: 300px;
     border: 25px lightgrey;
     padding: 25px;
     margin: 25px;
-} */
+} 
+
 </style>
 </head>
 <body>
@@ -44,7 +45,8 @@
 <td> ${total}</td> 
 </tr>
 <tr>
-<td><a href="proceed"><button>proceddelivery</button></a>
+<td><button type="button" class="btn btn-primary"><a href="proceed">proceddelivery</a></button>
+  
 </td>
 </tr>
 </table>

@@ -15,7 +15,7 @@
 	margin-top:1px;
 }
 .slider-wrapper {
-	width: 95%;
+	width: 100%;
 	height: 250px;
 	position:relative;
 	padding-left: 20spx;  
@@ -24,14 +24,15 @@
 .slide {
 	float: right;
 	position: absolute;
-	width: 95%; 
+	width: 100%; 
 	height: 100%;
 	opacity: 0;
-	transition: opacity 3s linear;
+	transition: opacity 5s linear;
 }
 .slider-wrapper > .slide:first-child {
 	opacity: 1;
 }
+
 </style>
 <script>
 (function() {
@@ -104,16 +105,24 @@
 
 </head>
 <body>
+  
 <div class="slider" id="main-slider"><!-- outermost container element -->
 	<div class="slider-wrapper"><!-- innermost wrapper element -->
 		<img src="resources/images/image.jpg" alt="First" class="slide" />
 		<img src="resources/images/phone2.jpg" alt="second" class="slide" />
 		<img src="resources/images/phone3.jpg" alt="Third" class="slide" />
 		<img src="resources/images/phone4.jpg" alt="fourth" class="slide" />
-		
+
 </div>
-</div>	
+</div>
+<c:if test="${pageContext.request.userPrincipal.name==null}">
+<%@include file="productList.jsp"%>
+</c:if>
+<c:if test="${pageContext.request.userPrincipal.name!=null}">
+			<security:authorize access="hasRole('ROLE_USER')">	
     <%@include file="productList.jsp"%>
+    </security:authorize>
+    </c:if>
 
 
 </body>

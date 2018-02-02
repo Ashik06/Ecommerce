@@ -92,7 +92,8 @@ body {
 </style>
        
 <body>
-
+<fieldset>
+  <legend>Category</legend>
 <form name="categoryform" action="addcategory" onsubmit="return formCategory()" method="post">
 <table align="center">
  <tr><td> Category Name:</td>
@@ -104,5 +105,6 @@ body {
 <td>  <input type="submit" name="submit" value="new category"></td></tr>
 </table>
 </form>
+</fieldset>
 </body>
 </html>   

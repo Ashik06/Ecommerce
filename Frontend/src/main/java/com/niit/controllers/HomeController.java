@@ -32,7 +32,8 @@ public class HomeController {
 
 	@RequestMapping("/home")
 	public String home1(Model m) {
-
+		List<Product> productList = productDao.list();
+		m.addAttribute("productList", productList);
 		return "home";
 	}
 
