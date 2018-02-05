@@ -13,6 +13,14 @@
     padding: 25px;
     margin: 25px;
 } 
+footer {
+    padding: 1em;
+    color: black;
+    background-color: white;
+    clear: left;
+    text-align: right;
+}
+
 
 </style>
 </head>
@@ -45,10 +53,13 @@
 <td> ${total}</td> 
 </tr>
 <tr>
-<td><a href="proceed"><button>proceddelivery</button></a>
-  
-</td>
+<td><button type="button" class="btn btn-primary"><a href="proceed">proceddelivery</a></button>
+  </td>
+  <td>
+  <button type="button" class="btn btn-primary"><a href="ContinousShop">ContinousShop</a></button>
+  </td>
 </tr>
 </table>
+<footer>Copyright &copy; Moblies World.com</footer>
 </body>
 </html>

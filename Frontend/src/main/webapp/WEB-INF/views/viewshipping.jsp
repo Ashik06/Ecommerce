@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -22,6 +23,9 @@
     padding: 2px;
     margin:35px;
     float:left;
+}
+body {
+    background-color: lightgreen;
 }
 </style>
 </head>
@@ -44,8 +48,8 @@
 <td>${shipping.name}</td>
 <td>${shipping.mobileno}</td>
 <td>${shipping.address}</td>
-<td><button type="button" class="btn btn-info"><a href="editShipping?shippingId=${shipping.shippingid}">EDIT</a></button></td>
-<td><button type="button" class="btn btn-danger"><a href="deleteShipping?shippingId=${shipping.shippingid}">DELETE</a></button></td>
+ <tr> <th><td><button type="button" class="btn btn-info"><a href="editShipping?shippingId=${shipping.shippingid}">EDIT</a></button></td>
+<td><button type="button" class="btn btn-danger"><a href="deleteShipping?shippingId=${shipping.shippingid}">DELETE</a></button></td></tr></th>
 </tr>
 </c:forEach>
 </table>

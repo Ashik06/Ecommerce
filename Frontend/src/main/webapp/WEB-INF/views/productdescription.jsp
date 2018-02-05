@@ -54,6 +54,13 @@
         width: 100%;
     }
 }
+footer {
+    padding: 1em;
+    color: black;
+    background-color: white;
+    clear: left;
+    text-align: right;
+}
 </style>
 <script type="text/javascript">
 function goBack() {
@@ -67,14 +74,15 @@ function goBack() {
  <img src="resources/images/product/${product.productid}.jpg" width="500" height="500">
 
 <th>
-${product.productName}<br>
-${product.productdescription}<br>
-${product.category}<br>
-${product.supplier}<br>
-${product.price}<br>${product.stock}</th>
+<br>Product Name:${product.productName}
+<br> Description:${product.productdescription}
+<br>Price:${product.price}
+<br>Stock:${product.stock}</th>
+
 </h3>
 <tr><td style="color: red;"><h2>${msg}</h2></td>
 <td><button class="button"><a href="addToCart?productId=${product.productid}">ADDTOCART</a></button>
+ 
 </td>
 <br> 
 <td><button onclick="goBack()">GoBack</button></td>
@@ -86,7 +94,7 @@ ${product.price}<br>${product.stock}</th>
  
  
  
- 
+ <footer>Copyright &copy; Mobiles World.com</footer>
  
  </body>
 </html>

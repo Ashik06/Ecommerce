@@ -27,7 +27,7 @@
 	width: 100%; 
 	height: 100%;
 	opacity: 0;
-	transition: opacity 5s linear;
+	transition: opacity 1s linear;
 }
 .slider-wrapper > .slide:first-child {
 	opacity: 1;
@@ -108,10 +108,10 @@
   
 <div class="slider" id="main-slider"><!-- outermost container element -->
 	<div class="slider-wrapper"><!-- innermost wrapper element -->
-		<img src="resources/images/image.jpg" alt="First" class="slide" />
+		<img src="resources/images/img11.jpg" alt="First" class="slide" />
 		<img src="resources/images/phone2.jpg" alt="second" class="slide" />
-		<img src="resources/images/phone3.jpg" alt="Third" class="slide" />
-		<img src="resources/images/phone4.jpg" alt="fourth" class="slide" />
+		<img src="resources/images/img2.jpg" alt="Third" class="slide" />
+		<img src="resources/images/img3.jpg" alt="fourth" class="slide" />
 
 </div>
 </div>

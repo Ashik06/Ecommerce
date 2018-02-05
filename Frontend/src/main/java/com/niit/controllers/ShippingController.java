@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.niit.dao.CartDao;
+import com.niit.dao.ProductDao;
 import com.niit.dao.ShippingDao;
 import com.niit.dao.UserDao;
 import com.niit.model.Cart;
+import com.niit.model.Product;
 import com.niit.model.Shipping;
 import com.niit.model.User;
 
@@ -42,7 +44,7 @@ public class ShippingController {
 		model.addAttribute("viewShipping", true);
 		return "Usersignin";
 	}
-
+	
 	@RequestMapping("editShipping")
 	public String EditShipping(@RequestParam("shippingId") String shippingid, Model model) {
 

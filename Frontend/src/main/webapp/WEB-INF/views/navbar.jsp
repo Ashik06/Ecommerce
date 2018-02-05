@@ -101,7 +101,7 @@ li.dropdown {
 									href="Product"><i
 									class="fa fa-product-hunt" aria-hidden="true"></i> Product </a> <a
 									href="${pageContext.request.contextPath}/admin/productlist"><i
-									class="fa fa-list" aria-hidden="true"></i> Product List</a>
+									class="fa fa-list" aria-hidden="true"></i></a>
 							</div>
 						</button>
 					</div>

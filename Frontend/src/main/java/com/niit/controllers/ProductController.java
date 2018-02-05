@@ -100,5 +100,13 @@ public class ProductController {
 
 	}
 	
+	@RequestMapping("ContinousShop")
+	public String ContinousShipping(Model model) {
 
+		List<Product> productList = productDao.list();
+		model.addAttribute("productList", productList);
+		model.addAttribute("ContinousShop", true);
+		return "home";
+
+	}
 }

@@ -38,8 +38,10 @@
 <tr>
 <td><a href="proceed"><button>proceddelivery</button></a>
 </td>
+<td><a href="ContinousShop"><burron>ContinousShop</button></a>
 <td><a href="#"><button>grand total</button></a>
 </td>
+
 </tr> 
 </table>
 </body>

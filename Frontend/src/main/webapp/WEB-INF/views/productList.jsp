@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <style>
-/* div.gallery {
+ div.gallery {
     margin: 5px;
     border: 1px solid #ccc;
     float:right;
@@ -24,7 +24,7 @@ div.desc {
     padding: 15px;
     text-align: center;
 }
- */
+ 
 .img {
     position: relative;
     float: left;
@@ -36,10 +36,22 @@ div.desc {
     margin-left:7em;
     padding-top:3em;
 }
+
+footer {
+    padding: 1em;
+    color: black;
+    background-color: white;
+    clear: left;
+    text-align: right;
+}
+
+
  </style>
 </head>
 <body>
+
 <c:forEach items="${productList}" var="product" >
+
 <div class="img" >
 <a href="productdescription?productid=${product.productid}">
 <img src="resources/images/product/${product.productid}.jpg" width="200" height="200">
@@ -47,7 +59,9 @@ div.desc {
 Name : ${product.productName}
 price : ${product.price}
 
+
 </div>
 </c:forEach>
+<footer>Copyright &copy; Mobiles World.com</footer>
 </body>
 </html>

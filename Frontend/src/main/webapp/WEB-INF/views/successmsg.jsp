@@ -3,10 +3,24 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<style>
+
+p
+{
+text-align:center;
+font-size:50px;
+}
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
-Product delivered successfully!!!!
+
+<p>
+
+<P>Product delivered successfully!!!!</p>
+<p>Thankyou...</p>
+
+</p>
 </body>
 </html>
