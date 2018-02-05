@@ -50,7 +50,7 @@ public class ShippingDaoImpl implements ShippingDao {
 	@Transactional
 	public void delete(String shippingid) {
 		Shipping shippingToDelete = new Shipping();
-		
+		shippingToDelete.setShippingid(shippingid);
 		sessionFactory.getCurrentSession().delete(shippingToDelete);
 
 	}

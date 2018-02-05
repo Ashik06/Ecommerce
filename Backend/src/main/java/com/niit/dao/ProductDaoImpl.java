@@ -52,4 +52,5 @@ public class ProductDaoImpl implements ProductDao {
 		productToDelete.setProductid(productid);
 		sessionFactory.getCurrentSession().delete(productToDelete);
 	}
+	
 }
